@@ -30,15 +30,20 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 300, height: 150)
+                    .overlay(
+                        RoundedRectangle(
+                            cornerRadius: 10
+                        ).stroke(.white, lineWidth: 3)
+                    )
+                    .frame(width: 350, height: 150)
                     .foregroundColor(color)
                     .padding(.top, 50)
                     .padding(.leading, 16)
-                Spacer()
                 SliderView(value: $redSliderValue, color: $redColor)
+                    .padding(.top, 70)
                 SliderView(value: $greenSliderValue, color: $greenColor)
                 SliderView(value: $blueSliderValue, color: $blueColor)
-                    .padding(.bottom, 300)
+                Spacer()
             }
             .padding(.trailing, 16)
         }
